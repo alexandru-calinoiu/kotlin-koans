@@ -21,7 +21,13 @@ fun todoTask4(collection: Collection<Int>): Nothing = TODO(
     documentation = doc4(),
     references = { JavaCode4().task4(collection) })
 
-fun task4(collection: Collection<Int>): Boolean = todoTask4(collection)
+fun task4(collection: Collection<Int>): Boolean {
+    // without optional annotations
+    val predicate_explicit: (Int) -> (Boolean) = { number -> number % 42 == 0 }
+    val predicate = { number: Int -> number % 42 == 0 }
+
+    return collection.any(predicate) && collection.any(predicate_explicit)
+}
 
 
 

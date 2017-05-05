@@ -8,7 +8,7 @@ fun doc0() {}
 /**
  * @see <a href="http://kotlinlang.org/docs/reference/functions.html#default-arguments">Default and named arguments</a>
  */
-fun doc2() {}
+fun     doc2() {}
 
 
 /**

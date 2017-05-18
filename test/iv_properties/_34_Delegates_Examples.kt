@@ -19,6 +19,22 @@ class _34_Delegates_Examples {
         lazyProperty.lazyValue
         lazyProperty.lazyValue
         assertEquals("Lazy property should be initialized once", 1, initialized)
+    }
 
+    @Test fun observable() {
+        var called = false
+        val user = User({ _, _, _ -> called = true })
+        user.name = "Vasile"
+        assertTrue("Handler should have been called", called)
+        assertEquals("Name should have been set", "Vasile", user.name)
+    }
+
+    @Test fun propertiesInMap() {
+        val user = UserFromMap(mapOf(
+                "name" to "Vasile",
+                "age" to 81
+        ))
+        assertEquals("Name should be set", "Vasile", user.name)
+        assertEquals("Age should be set", 81, user.age)
     }
 }

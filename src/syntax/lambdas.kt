@@ -22,6 +22,9 @@ fun fullSyntacticFormOfFunctionLiterals() {
 
     val extensionLambda: Int.(Int) -> Int = { x -> this + x }
     1.extensionLambda(2) // == 3
+
+    val next: Int.() -> Int = { this + 1 }
+    1.next()
 }
 
 fun closure(): Int {

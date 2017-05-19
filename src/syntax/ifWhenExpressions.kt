@@ -13,13 +13,15 @@ fun ifExpression(a: Int, b: Int) {
     }
 }
 
-fun whenExpression(a: Any?) {
+fun whenExpression(a: Any?) : Any? {
     val result = when (a) {
         null -> "null"
         is String -> "String"
         is Any -> "Any"
         else -> "Don't know"
     }
+
+    return result
 }
 
 fun whenExpression(x: Int) {

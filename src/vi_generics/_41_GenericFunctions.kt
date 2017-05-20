@@ -27,8 +27,7 @@ fun Set<Char>.partitionLettersAndOtherSymbols(): Pair<Set<Char>, Set<Char>> {
     return partitionTo(HashSet<Char>(), HashSet()) { c -> c in 'a'..'z' || c in 'A'..'Z' }
 }
 
-fun <C, T : MutableCollection<C>> Iterable<C>.partitionTo(first: T, second: T, predicate: (C) -> Boolean) : Pair<T, T> {
-    filter(predicate).toCollection(first)
-    filter { !predicate.invoke(it) } .toCollection(second)
-    return Pair(first, second)
+fun <C, T : MutableCollection<C>> Iterable<C>.partitionTo(start: T, end: T, predicate: (C) -> Boolean) : Pair<T, T> {
+    with(partition(predicate)) { start.addAll(first); end.addAll(second) }
+    return Pair(start, end)
 }
